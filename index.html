@@ -13,15 +13,17 @@
 
 	<body>
 		<header>
-			<img src="world3.png" alt="Icon" id="header-icon" />
+			<img src="world.png" alt="Icon" id="header-icon" />
 			<h1>World Database Lookup</h1>
 		</header>
 
 		<main>
 			<div id="controls">
-				<!-- <label for="country">Country:</label> -->
 				<input id="country" type="search" name="country" placeholder="Enter country name" />
-				<button id="lookup">Lookup</button>
+				<div id="button-container">
+					<button id="lookup_countries">Lookup Countries</button>
+					<button id="lookup_cities">Lookup Cities</button>
+				</div>
 			</div>
 			
 			<div id="result">

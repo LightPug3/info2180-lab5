@@ -50,7 +50,7 @@ main {
     display: flex;
     flex-direction: column; /* Stack input and button vertically */
     align-items: center;
-    gap: 10px;
+    /* gap: 10px; */
     margin-bottom: 20px;
 }
 
@@ -63,7 +63,7 @@ main {
 #controls input {
     padding: 10px;
     font-size: 14px;
-    width: 300px;
+    width: 600px; /* Increase the width as needed */
     border: 2px solid #005f73; /* Matching deep teal border */
     border-radius: 4px;
     transition: border-color 0.3s ease;
@@ -83,6 +83,9 @@ main {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 5px; /* Space between buttons */
+    display: inline-block; /* Make buttons inline */
+
 }
 
 #controls button:hover {
