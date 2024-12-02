@@ -1,54 +1,45 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // function to fetch and display results:
+    // Function to fetch and display the results
     function lookupCountries() {
+        // Get the country name from the input field
         const country = document.getElementById('country').value.trim();
 
-        // URL for the fetch request:
+        // Build the URL for the fetch request
         let url = 'world.php';
         if (country) {
+            // If the country field is not empty, append it to the URL
             url += `?country=${encodeURIComponent(country)}`;
         }
 
-        // create a new AJAX request using Fetch API:
+        // Create a new AJAX request using the Fetch API
         fetch(url)
             .then(response => {
+                // Check if the response is ok (status 200-299)
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                return response.json();
+                return response.text(); // Since PHP returns HTML now, we use .text()
             })
-            .then(data => {
-                // clear any previous results::
+            .then(html => {
+                // Insert the returned HTML table into the result div
                 const resultDiv = document.getElementById('result');
-                resultDiv.innerHTML = '';
-
-                // check if results are returned:
-                if (data.length === 0) {
-                    resultDiv.innerHTML = 'No countries found.';
-                    return;
-                }
-
-                // print the data into the result div:
-                data.forEach(row => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = `${row.name} is ruled by ${row.head_of_state}`;
-                    resultDiv.appendChild(listItem);
-                });
+                resultDiv.innerHTML = html; // Insert the full table HTML directly
             })
             .catch(error => {
+                // Display an error message if something went wrong
                 console.error('There was a problem with the fetch operation:', error);
                 document.getElementById('result').innerHTML = 'An error occurred while fetching the data.';
             });
     }
 
-    // listen for the 'click' event on the Lookup button
+    // Listen for the 'click' event on the Lookup button
     document.getElementById('lookup').addEventListener('click', lookupCountries);
 
-    // listen for the 'Enter' key press in the input field:
+    // Listen for the 'Enter' key press in the input field
     document.getElementById('country').addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
-            event.preventDefault();
-            lookupCountries();
+            event.preventDefault(); // Prevent form submission if it's in a form
+            lookupCountries(); // Trigger the same action as the button click
         }
     });
 });

@@ -1,1 +1,158 @@
-/* Add your own styles */
+/* Importing fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;500&display=swap');
+
+/* General page styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5d8; /* Subtle off-white background color */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+}
+
+/* Add this to your existing CSS */
+#header-icon {
+    width: 15rem; /* Small size for the icon */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between icon and title */
+    vertical-align: middle; /* Vertically align the icon with the text */
+}
+
+/* Adjust header to remove capitalization */
+header {
+    background-color: #005f73;
+    color: rgb(201, 201, 201);
+    width: 100%;
+    text-align: center; /* Change this to 'center' */
+    padding: 20px 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem !important;
+    letter-spacing: 1px;
+    text-transform: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content horizontally */
+}
+
+
+/* Main content area */
+main {
+    width: 80%;
+    max-width: 1000px;
+    margin-top: 20px;
+}
+
+/* Controls section: input and button styling */
+#controls {
+    display: flex;
+    flex-direction: column; /* Stack input and button vertically */
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#controls label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+#controls input {
+    padding: 10px;
+    font-size: 14px;
+    width: 300px;
+    border: 2px solid #005f73; /* Matching deep teal border */
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+#controls input:focus {
+    border-color: #0a9396; /* Lighter teal on focus */
+    outline: none;
+}
+
+#controls button {
+    padding: 12px 25px;
+    font-size: 14px;
+    background-color: #0a9396; /* Lighter teal for the button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#controls button:hover {
+    background-color: #005f73; /* Darker teal on hover */
+    transform: scale(1.05);
+}
+
+#controls button:active {
+    background-color: #003f46; /* Even darker teal when clicked */
+}
+
+/* Result section styling */
+#result {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #005f73; /* Deep teal for table header */
+    color: rgb(241, 241, 241);
+    font-weight: bold;
+    letter-spacing: 1px;
+
+}
+
+tr:nth-child(even) {
+    background-color: #e0f7fa; /* Light cyan for even rows */
+}
+
+tr:hover {
+    background-color: #b2ebf2; /* Slightly darker cyan on hover */
+}
+
+td {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Responsive Design: Stack controls and table on smaller screens */
+@media (max-width: 768px) {
+    main {
+        width: 95%;
+    }
+
+    #controls {
+        width: 100%;
+    }
+
+    #controls input {
+        width: 80%;
+    }
+
+    table {
+        font-size: 12px;
+    }
+}
